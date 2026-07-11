@@ -6,6 +6,7 @@ proteksi tampilan, dan navigasi sidebar antar halaman.
 
 import streamlit as st
 
+from proteksi import aktifkan_proteksi_tampilan
 from utilitas import muat_css
 from halaman import beranda, tentang_model, data_historis
 
@@ -19,6 +20,7 @@ st.set_page_config(
 
 # ===== Aktifkan styling & deterrent klik kanan/seleksi teks =====
 muat_css("style.css")
+aktifkan_proteksi_tampilan()
 
 # ===== Definisi halaman untuk navigasi sidebar =====
 halaman_beranda = st.Page(beranda.tampilkan, title="Beranda", icon="🥚", url_path="beranda", default=True)
