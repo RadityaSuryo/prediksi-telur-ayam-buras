@@ -19,7 +19,7 @@ st.set_page_config(
 )
 
 # ===== Aktifkan styling & deterrent klik kanan/seleksi teks =====
-muat_css("style.css")
+muat_css("Style.css")
 aktifkan_proteksi_tampilan()
 
 # ===== Definisi halaman untuk navigasi sidebar =====
