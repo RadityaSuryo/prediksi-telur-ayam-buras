@@ -1,0 +1,210 @@
+/* ===========================================
+   STYLE.CSS — Tema Hangat & Natural
+   Prediksi Produksi Telur Ayam Buras Jawa Barat
+   =========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+:root {
+    --warna-dasar: #F5EFE3;
+    --warna-kartu: #FFFBF2;
+    --warna-teks: #3D2B1F;
+    --warna-aksen-hijau: #6B7A4F;
+    --warna-aksen-telur: #D98E3F;
+    --warna-garis: #DCD2BC;
+}
+
+/* Atur lebar maksimal konten agar tetap nyaman dibaca di layar lebar */
+.block-container {
+    max-width: 1100px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+    margin: 0 auto;
+}
+
+/* Sidebar navigasi — versi gelap, coklat tua hangat */
+section[data-testid="stSidebar"] {
+    background-color: #2E2018;
+    border-right: 1px solid #1F150F;
+}
+section[data-testid="stSidebar"] * {
+    font-family: 'Inter', sans-serif;
+}
+/* Teks menu navigasi (tidak aktif) */
+section[data-testid="stSidebar"] [data-testid="stPageLink"] p,
+section[data-testid="stSidebar"] a span {
+    color: #E8DFD0 !important;
+}
+/* Menu navigasi yang sedang aktif/terpilih */
+section[data-testid="stSidebar"] [aria-current="page"] {
+    background-color: #4A3526 !important;
+    border-radius: 8px;
+}
+section[data-testid="stSidebar"] [aria-current="page"] p {
+    color: #F5EFE3 !important;
+    font-weight: 600;
+}
+/* Hover pada menu navigasi */
+section[data-testid="stSidebar"] a:hover {
+    background-color: #3D2B1F;
+    border-radius: 8px;
+}
+
+/* Header tempat tombol toggle berada saat sidebar terbuka */
+header[data-testid="stHeader"] {
+    background-color: transparent;
+}
+
+/* Sidebar dibuat selalu terbuka/tetap — sembunyikan tombol toggle collapse/expand
+   karena fungsinya tidak lagi diperlukan */
+button[data-testid="stSidebarCollapseButton"],
+button[data-testid="stSidebarCollapsedControl"],
+button[data-testid="stBaseButton-headerNoPadding"] {
+    display: none !important;
+}
+
+/* Perbaiki ikon Material Symbol yang kadang gagal render jadi teks mentah */
+[data-testid="stIconMaterial"] {
+    font-family: 'Material Symbols Outlined', sans-serif !important;
+    font-size: 0 !important;
+}
+[data-testid="stIconMaterial"]::before {
+    font-size: 1.25rem;
+}
+
+/* Latar belakang utama */
+.stApp {
+    background-color: var(--warna-dasar);
+    color: var(--warna-teks);
+}
+
+/* Sembunyikan menu hamburger & footer */
+#MainMenu, footer {visibility: hidden;}
+
+/* Judul utama */
+h1 {
+    font-family: 'Fraunces', serif !important;
+    font-weight: 700 !important;
+    color: var(--warna-teks) !important;
+    font-size: 2.4rem !important;
+    letter-spacing: -0.01em;
+    margin-bottom: 0 !important;
+}
+
+/* Subjudul / caption */
+.subjudul {
+    font-family: 'Inter', sans-serif;
+    color: var(--warna-aksen-hijau);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 2px solid var(--warna-garis);
+    padding-bottom: 1.2rem;
+}
+
+/* Garis pemisah oval kecil bertema telur */
+.pemisah-telur {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 1.8rem 0 1.2rem 0;
+}
+.pemisah-telur .oval {
+    width: 14px;
+    height: 18px;
+    background: var(--warna-aksen-telur);
+    border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+    flex-shrink: 0;
+}
+.pemisah-telur .label {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--warna-teks);
+}
+
+/* Semua teks body pakai Inter */
+p, label, .stMarkdown, .stDataFrame, div[data-testid="stMarkdownContainer"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* st.metric — label dan nilai angka, gelapkan supaya terbaca di latar krem */
+div[data-testid="stMetric"] {
+    background-color: var(--warna-kartu);
+    border: 1px solid var(--warna-garis);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+}
+div[data-testid="stMetricLabel"] p {
+    color: var(--warna-aksen-hijau) !important;
+    font-weight: 500 !important;
+}
+div[data-testid="stMetricValue"] {
+    color: var(--warna-teks) !important;
+}
+div[data-testid="stMetricValue"] div {
+    color: var(--warna-teks) !important;
+}
+
+/* Kartu pembungkus elemen utama (st.container border=True) */
+div[data-testid="stVerticalBlockBorderWrapper"] > div {
+    background-color: var(--warna-kartu);
+    border-color: var(--warna-garis) !important;
+    border-radius: 14px !important;
+    padding: 0.4rem 0.4rem;
+}
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    margin-bottom: 1.4rem;
+}
+
+/* Label teks slider ("Pilih jumlah tahun...") */
+div[data-testid="stSlider"] label p {
+    color: var(--warna-teks) !important;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Slider — ubah warna aksen jadi hijau zaitun */
+div[data-testid="stSlider"] [role="slider"] {
+    background-color: var(--warna-aksen-hijau) !important;
+    border-color: var(--warna-aksen-hijau) !important;
+}
+div[data-testid="stSlider"] .st-emotion-cache-1dj0hjr,
+div[data-testid="stSlider"] div[style*="background-color: rgb(255, 75, 75)"] {
+    background-color: var(--warna-aksen-hijau) !important;
+}
+
+/* Info box — sesuaikan warna jadi krem/coklat lembut */
+div[data-testid="stAlert"] {
+    background-color: #EFE6D3 !important;
+    border-left: 4px solid var(--warna-aksen-telur);
+    border-radius: 8px;
+    color: var(--warna-teks) !important;
+}
+div[data-testid="stAlert"] p {
+    color: var(--warna-teks) !important;
+}
+
+/* Subheader tabel */
+h3 {
+    font-family: 'Fraunces', serif !important;
+    color: var(--warna-teks) !important;
+    font-weight: 600 !important;
+}
+
+/* Tabel dataframe */
+div[data-testid="stDataFrame"] {
+    border: 1px solid var(--warna-garis);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Footer kecil */
+.footer-kecil {
+    text-align: center;
+    color: #8A7B68;
+    font-size: 0.85rem;
+    margin-top: 2rem;
+}
