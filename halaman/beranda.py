@@ -26,19 +26,7 @@ def tampilkan():
     tahun = df['tahun'].tolist()
     data = df['total_produksi'].tolist()
 
-    # ===== Input interaktif =====
-    judul_bagian("Atur Periode Prediksi")
-
-    with st.container(border=True):
-        n_prediksi = st.slider(
-            "Pilih jumlah tahun yang ingin diprediksi:",
-            min_value=1, max_value=5, value=3
-        )
-        st.info(
-            "🌾 Prediksi ARIMA mengikuti pola data historis. Semakin jauh periode yang dipilih, "
-            "semakin lebar pula rentang ketidakpastiannya (area bayangan pada grafik), karena "
-            "model belum dapat memperhitungkan faktor luar seperti wabah, kebijakan, atau cuaca ekstrem."
-        )
+    n_prediksi = 3  # jumlah tahun prediksi tetap
 
     # ===== Hitung prediksi beserta interval kepercayaan =====
     hasil_forecast = model.get_forecast(steps=n_prediksi)
